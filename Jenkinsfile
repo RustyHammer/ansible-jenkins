@@ -1,7 +1,7 @@
 pipeline {   
   agent any
   environment {
-    ANSIBLE_SERVER = "138.68.94.71"
+    ANSIBLE_SERVER = "157.230.6.45"
   }
   stages {
     stage("copy files to ansible server") {
@@ -24,7 +24,7 @@ pipeline {
           echo "calling ansible playbook to configure ec2 instances"
           def remote = [:]
           remote.name = "ansible-server"
-          remote.host = ANSIBLE_SERVER
+          remote.host = 157.230.6.45
           remote.allowAnyHosts = true
 
           withCredentials([sshUserPrivateKey(credentialsId: 'ansible-server-key', keyFileVariable: 'keyfile', usernameVariable: 'user')]) {
