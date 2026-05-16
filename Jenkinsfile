@@ -24,7 +24,7 @@ pipeline {
           echo "calling ansible playbook to configure ec2 instances"
           def remote = [:]
           remote.name = "ansible-server"
-          remote.host = 157.230.6.45
+          remote.host = "157.230.6.45"
           remote.allowAnyHosts = true
 
           withCredentials([sshUserPrivateKey(credentialsId: 'ansible-server-key', keyFileVariable: 'keyfile', usernameVariable: 'user')]) {
